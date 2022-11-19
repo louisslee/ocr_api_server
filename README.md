@@ -36,28 +36,20 @@ python ocr_server.py --port 9898 --ocr --old --det
 
 ```
 
-## docker运行方式(目测只能在Linux下部署)
+# HA addon: ddddocr_api
 
-```shell
-git clone https://github.com/sml2h3/ocr_api_server.git
-# docker怎么安装？百度吧
+本项目fork自https://github.com/sml2h3/ocr_api_server, 为方便HA应用开发，做成了HA addons.
 
-cd ocr_api_server
 
-# 修改entrypoint.sh中的参数，具体参数往上翻，默认9898端口，同时开启ocr模块以及目标检测模块
+通过如下方式clone后，在HA webUI中的加载项-》加载项商店就可以找到了。
 
-# 编译镜像
-docker build -t ocr_server:v1 .
-
-# 运行镜像
-docker run -p 9898:9898 -d ocr_server:v1
-
+```bash
+cd /addons
+git clone https://github.com/louisslee/ocr_api_server.git
 ```
 
-# 接口
 
-**具体请看test_api.py文件**
-
+## 接口使用方法（更详细使用方式，请看原repo)
 ```python
 # 1、测试是否启动成功，可以通过直接GET访问http://{host}:{port}/ping来测试，如果返回pong则启动成功
 
