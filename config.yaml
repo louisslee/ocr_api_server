@@ -1,0 +1,13 @@
+name: "ddddocr_api"
+version: "1.4.7"
+slug: ddddocr_api
+description: "a docker-based captcha recoginition restful API."
+arch:
+  - aarch64
+  - amd64
+  - armhf
+  - armv7
+  - i386
+
+ports:
+  9898/tcp: 9898
